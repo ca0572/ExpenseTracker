@@ -11,15 +11,23 @@ class EmployeesController < ApplicationController
         render(json: {error: "bad request"},status: 400)
        end
     end
+
     # to update an onboarded employee
     def update
-        employee_details=employee_params 
-        employee_details[:status]="onboarded"
         @employee = Employee.find(params[:id])
-        @employee.update(employee_params)
-        render(json: {success: "the employee data is updated for the employee_id - #{@employee.id}"}, status: 201)
+        employee_params.each do |key,value|
+            @employee.update!(key => value) if value!=nil && !value.blank? 
+        end
+        render(json: {success: "the employee data is updated for the employee_id - #{@employee.id}"}, status: 200)
     end
+
+    def update_status
+        @employee=Employee.find(params[:id])
+        @employee.update!(status: status_param[:status])
+    end
+
     def employee_params 
-        params.permit(:employee_name, :phone_no, :employee_department, :email_id)
+        params.permit(:employee_name, :phone_no, :employee_department, :email_id,:status)
     end
+
 end
