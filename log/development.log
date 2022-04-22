@@ -2424,3 +2424,167 @@ Can't verify CSRF token authenticity.
 Completed 201 Created in 22ms (Views: 0.5ms | ActiveRecord: 3.9ms | Allocations: 9811)
 
 
+Started PATCH "/employees/11" for 127.0.0.1 at 2022-04-22 18:09:28 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#update as */*
+  Parameters: {"status"=>"terminated", "id"=>"11", "employee"=>{"status"=>"terminated"}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:17:in `update'
+[31mUnpermitted parameters: :id, :employee. Context: { controller: EmployeesController, action: update, request: #<ActionDispatch::Request:0x00007fd13324b740>, params: {"status"=>"terminated", "controller"=>"employees", "action"=>"update", "id"=>"11", "employee"=>{"status"=>"terminated"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mEmployee Update (0.4ms)[0m  [1m[33mUPDATE "employees" SET "status" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["status", "terminated"], ["updated_at", "2022-04-22 12:39:28.814675"], ["id", 11]]
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 13112)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+Started PATCH "/employees/11" for 127.0.0.1 at 2022-04-22 18:10:46 +0530
+Processing by EmployeesController#update as */*
+  Parameters: {"status"=>"onboarded", "id"=>"11", "employee"=>{"status"=>"onboarded"}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:17:in `update'
+[31mUnpermitted parameters: :id, :employee. Context: { controller: EmployeesController, action: update, request: #<ActionDispatch::Request:0x00007fd134b21ad0>, params: {"status"=>"onboarded", "controller"=>"employees", "action"=>"update", "id"=>"11", "employee"=>{"status"=>"onboarded"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mEmployee Update (0.4ms)[0m  [1m[33mUPDATE "employees" SET "status" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["status", "onboarded"], ["updated_at", "2022-04-22 12:40:46.916566"], ["id", 11]]
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2582)
+
+
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+Started PATCH "/employees/11" for 127.0.0.1 at 2022-04-22 18:18:02 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EmployeesController#update as */*
+  Parameters: {"status"=>"terminated", "id"=>"11", "employee"=>{"status"=>"terminated"}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:17:in `update'
+[31mUnpermitted parameters: :id, :employee. Context: { controller: EmployeesController, action: update, request: #<ActionDispatch::Request:0x00007fd13318f3d8>, params: {"status"=>"terminated", "controller"=>"employees", "action"=>"update", "id"=>"11", "employee"=>{"status"=>"terminated"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mEmployee Update (0.5ms)[0m  [1m[33mUPDATE "employees" SET "status" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["status", "terminated"], ["updated_at", "2022-04-22 12:48:02.521249"], ["id", 11]]
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 4819)
+
+
+Started POST "/employees/11/expenses/validate" for 127.0.0.1 at 2022-04-22 18:18:08 +0530
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>11, "id"=>"11", "expense"=>{"employee_id"=>11}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:19:in `validate'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 669)
+
+
+Started POST "/employees/11/expenses/validate" for 127.0.0.1 at 2022-04-22 18:18:37 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>11, "id"=>"11", "expense"=>{"employee_id"=>11}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:19:in `validate'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 4563)
+
+
+Started PATCH "/employees/11" for 127.0.0.1 at 2022-04-22 18:18:50 +0530
+Processing by EmployeesController#update as */*
+  Parameters: {"status"=>"onboarded", "id"=>"11", "employee"=>{"status"=>"onboarded"}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:17:in `update'
+[31mUnpermitted parameters: :id, :employee. Context: { controller: EmployeesController, action: update, request: #<ActionDispatch::Request:0x00007fd13426bf08>, params: {"status"=>"onboarded", "controller"=>"employees", "action"=>"update", "id"=>"11", "employee"=>{"status"=>"onboarded"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mEmployee Update (1.1ms)[0m  [1m[33mUPDATE "employees" SET "status" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["status", "onboarded"], ["updated_at", "2022-04-22 12:48:50.854036"], ["id", 11]]
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:19:in `block in update'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2766)
+
+
+Started POST "/employees/11/expenses/validate" for 127.0.0.1 at 2022-04-22 18:18:57 +0530
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>11, "id"=>"11", "expense"=>{"employee_id"=>11}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:19:in `validate'
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 11]]
+  ↳ app/controllers/expenses_controller.rb:21:in `validate'
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:25:in `block in validate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:28:in `block in validate'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:28:in `block in validate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:28:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: e10dde29-d50c-4895-9bcc-2bedee8e499e) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:25:in `block in validate'
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:28:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "6"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:25:in `block in validate'
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:28:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 2e07bd69-0916-46d0-aab0-8c63738b4f12) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 300.0 vs the approved expense amount is 300.0"}, :args=>[]}
+Completed 200 OK in 103ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 46020)
+
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e10dde29-d50c-4895-9bcc-2bedee8e499e] Performing ActionMailer::MailDeliveryJob (Job ID: e10dde29-d50c-4895-9bcc-2bedee8e499e) from Async(default) enqueued at 2022-04-22T12:48:57Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e10dde29-d50c-4895-9bcc-2bedee8e499e] ExpenseMailer#expense_report_mail: processed outbound mail in 2.9ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14] Performing ActionMailer::MailDeliveryJob (Job ID: 5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14) from Async(default) enqueued at 2022-04-22T12:48:57Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14] ExpenseMailer#expense_report_mail: processed outbound mail in 0.7ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e10dde29-d50c-4895-9bcc-2bedee8e499e] Delivered mail 6262a43970060_20d8bcc0-42a@CALTM00058.mail (22.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e10dde29-d50c-4895-9bcc-2bedee8e499e] Date: Fri, 22 Apr 2022 18:18:57 +0530
+From: prakash.mamidi97@gmail.com
+To: prakash.mamidi63@gmail.com
+Message-ID: <6262a43970060_20d8bcc0-42a@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 5000.0 vs the approved expense amount is 5000.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] Performing ActionMailer::MailDeliveryJob (Job ID: 2e07bd69-0916-46d0-aab0-8c63738b4f12) from Async(default) enqueued at 2022-04-22T12:48:57Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"prakash.mamidi63@gmail.com", :email_body=>"the applied expense amount is 300.0 vs the approved expense amount is 300.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14] Delivered mail 6262a4397334f_20d8bcfc-315@CALTM00058.mail (3.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e10dde29-d50c-4895-9bcc-2bedee8e499e] Performed ActionMailer::MailDeliveryJob (Job ID: e10dde29-d50c-4895-9bcc-2bedee8e499e) from Async(default) in 55.71ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] ExpenseMailer#expense_report_mail: processed outbound mail in 0.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14] Date: Fri, 22 Apr 2022 18:18:57 +0530
+From: prakash.mamidi97@gmail.com
+To: prakash.mamidi63@gmail.com
+Message-ID: <6262a4397334f_20d8bcfc-315@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 500.0 vs the approved expense amount is 500.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14] Performed ActionMailer::MailDeliveryJob (Job ID: 5b2d5c37-48fd-42e3-a84f-6ae4ca5ecc14) from Async(default) in 25.5ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] Delivered mail 6262a43978b28_20d8bd24-2fc@CALTM00058.mail (2.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] Date: Fri, 22 Apr 2022 18:18:57 +0530
+From: prakash.mamidi97@gmail.com
+To: prakash.mamidi63@gmail.com
+Message-ID: <6262a43978b28_20d8bd24-2fc@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 300.0 vs the approved expense amount is 300.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] Performed ActionMailer::MailDeliveryJob (Job ID: 2e07bd69-0916-46d0-aab0-8c63738b4f12) from Async(default) in 19.96ms

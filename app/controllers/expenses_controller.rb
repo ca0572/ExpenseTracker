@@ -17,27 +17,31 @@ class ExpensesController < ApplicationController
     def validate
       
         @employee=Employee.find(params[:id])
-        @employee.expenses.each do |expense|
-            puts "the invoice id is #{expense[:invoice_id]}"
-            flag=validate_invoice(expense[:invoice_id])
-            puts "the flag value is #{flag}"
-            expense_data=Expense.where(:invoice_id => expense[:invoice_id]).first
-            puts "the expense data is #{expense_data}"
-            if flag
-                expense_data.update!(status: "approved")
-                ExpenseMailer.with(user: @employee.email_id, email_body: "the applied expense amount is #{expense[:amount]} vs the approved expense amount is #{expense[:amount]}").expense_report_mail.deliver_later  
-            else    
-                expense_data.update!(status: "rejected")
-                ExpenseMailer.with(user: @employee.email_id, email_body: "the applied expense amount is #{expense[:amount]} is got rejected").expense_report_mail.deliver_later
+        if @employee.status=="onboarded"
+
+            @employee.expenses.each do |expense|
+                puts "the invoice id is #{expense[:invoice_id]}"
+                expense_data=Expense.where(:invoice_id => expense[:invoice_id]).first
+
+                if validate_invoice(expense[:invoice_id])
+                    expense_data.update!(status: "approved")
+                    ExpenseMailer.with(user: @employee.email_id, email_body: "the applied expense amount is #{expense[:amount]} vs the approved expense amount is #{expense[:amount]}").expense_report_mail.deliver_later  
+                else    
+                    expense_data.update!(status: "rejected")
+                    ExpenseMailer.with(user: @employee.email_id, email_body: "the applied expense amount is #{expense[:amount]} is got rejected").expense_report_mail.deliver_later
+                end
+                    
             end
-                
-        end
-        render(json: {success: "the expenses are validated"},status: 200)
-        
+            render(json: {success: "the expenses are validated"},status: 200)
+        else
+            render(json: {success: "the employee is #{@employee.status}"},status: 200)
+        end   
     end
+
     def expense_params
         params.permit(:invoice_id,:discription,:amount)
     end
+
   #  def validate_params
    #     params.permit(:employee_id)
    # end
