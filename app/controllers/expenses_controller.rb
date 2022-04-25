@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
         expense_details=expense_params
         expense_details[:status]="pending"
         @expense=@employee.expenses.new(expense_details)
-        if @expense.save
+        if @expense.save!
             render(json: {success: "the expense created with #{@expense.id}"},status: 201)
         else
             render(json: {error: "received is not matching "}, status: 400)
@@ -17,8 +17,9 @@ class ExpensesController < ApplicationController
     def validate
       
         @employee=Employee.find(params[:id])
+        # to check wheter is employee is onboared or terminated
         if @employee.status=="onboarded"
-
+            
             @employee.expenses.each do |expense|
                 puts "the invoice id is #{expense[:invoice_id]}"
                 expense_data=Expense.where(:invoice_id => expense[:invoice_id]).first
