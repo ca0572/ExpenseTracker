@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_20_053639) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_25_124404) do
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,20 +25,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_20_053639) do
     t.string "employee_name"
     t.string "email_id"
     t.string "employee_department"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
   end
 
   create_table "expenses", force: :cascade do |t|
     t.string "invoice_id"
-    t.date "date"
     t.string "discription"
     t.float "amount"
     t.integer "employee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.integer "status"
     t.index ["employee_id"], name: "index_expenses_on_employee_id"
   end
 

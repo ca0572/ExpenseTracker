@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
         render(json: {success: "the comment is created with comment id #{@comment.id}"}, status: 201)
     end
     
+    private
+    
     def comment_params
         params.permit(:expense_id,:title,:body)
     end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :employees do
     resources :expenses 
-    get "/expense_report", to: "expenses#expense_report" 
+    get "/expense_report", defaults: {format: :json}, to: "expenses#expense_report" 
   end
   resources :comments
   get "/employee_details/:id", to: "admin#show"

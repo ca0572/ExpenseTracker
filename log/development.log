@@ -2588,3 +2588,1656 @@ Content-Transfer-Encoding: 7bit
 
 the applied expense amount is 300.0 vs the approved expense amount is 300.0
 [ActiveJob] [ActionMailer::MailDeliveryJob] [2e07bd69-0916-46d0-aab0-8c63738b4f12] Performed ActionMailer::MailDeliveryJob (Job ID: 2e07bd69-0916-46d0-aab0-8c63738b4f12) from Async(default) in 19.96ms
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 11:04:19 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"8104912363", "email_id"=>"prakash.mamidi63@gmail.com", "employee_name"=>"surya", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"8104912363", "employee_name"=>"surya", "email_id"=>"prakash.mamidi63@gmail.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :employee. Context: { controller: EmployeesController, action: create, request: #<ActionDispatch::Request:0x00007fa94d959018>, params: {"phone_no"=>"8104912363", "email_id"=>"prakash.mamidi63@gmail.com", "employee_name"=>"surya", "employee_department"=>"software engineer", "controller"=>"employees", "action"=>"create", "employee"=>{"phone_no"=>"8104912363", "employee_name"=>"surya", "email_id"=>"prakash.mamidi63@gmail.com", "employee_department"=>"software engineer"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("phone_no", "employee_name", "email_id", "employee_department", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["phone_no", "8104912363"], ["employee_name", "surya"], ["email_id", "prakash.mamidi63@gmail.com"], ["employee_department", "software engineer"], ["status", "onboarded"], ["created_at", "2022-04-25 05:34:20.194822"], ["updated_at", "2022-04-25 05:34:20.194822"]]
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+Completed 201 Created in 14ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 10774)
+
+
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 11:05:20 +0530
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :employee. Context: { controller: EmployeesController, action: create, request: #<ActionDispatch::Request:0x00007fa94cc09250>, params: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "controller"=>"employees", "action"=>"create", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+  [1m[36mEmployee Create (0.5ms)[0m  [1m[32mINSERT INTO "employees" ("phone_no", "employee_name", "email_id", "employee_department", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["phone_no", "7076302294"], ["employee_name", "Prakash Mamidi"], ["email_id", "mamidi.Prakash@credavenue.com"], ["employee_department", "software engineer"], ["status", "onboarded"], ["created_at", "2022-04-25 05:35:20.262820"], ["updated_at", "2022-04-25 05:35:20.262820"]]
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:8:in `create'
+Completed 201 Created in 7ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2133)
+
+
+Started GET "/employees/13" for 127.0.0.1 at 2022-04-25 11:05:38 +0530
+Processing by EmployeesController#show as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/employee_module.rb:5:in `show'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2733)
+
+
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-25 11:06:32 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"2", "discription"=>"Cab to airport", "amount"=>500, "employee_id"=>"13", "expense"=>{"invoice_id"=>"2", "discription"=>"Cab to airport", "amount"=>500}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:5:in `create'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fa94dc79090>, params: {"invoice_id"=>"2", "discription"=>"Cab to airport", "amount"=>500, "controller"=>"expenses", "action"=>"create", "employee_id"=>"13", "expense"=>{"invoice_id"=>"2", "discription"=>"Cab to airport", "amount"=>500}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mExpense Create (0.4ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "date", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "2"], ["date", nil], ["discription", "Cab to airport"], ["amount", 500.0], ["employee_id", 13], ["created_at", "2022-04-25 05:36:32.139369"], ["updated_at", "2022-04-25 05:36:32.139369"], ["status", "pending"]]
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+Completed 201 Created in 29ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 12511)
+
+
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-25 11:07:07 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"4", "discription"=>"Hotel accommodation", "amount"=>5000, "employee_id"=>"13", "expense"=>{"invoice_id"=>"4", "discription"=>"Hotel accommodation", "amount"=>5000}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:5:in `create'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fa94d981bf8>, params: {"invoice_id"=>"4", "discription"=>"Hotel accommodation", "amount"=>5000, "controller"=>"expenses", "action"=>"create", "employee_id"=>"13", "expense"=>{"invoice_id"=>"4", "discription"=>"Hotel accommodation", "amount"=>5000}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mExpense Create (0.5ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "date", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "4"], ["date", nil], ["discription", "Hotel accommodation"], ["amount", 5000.0], ["employee_id", 13], ["created_at", "2022-04-25 05:37:07.656953"], ["updated_at", "2022-04-25 05:37:07.656953"], ["status", "pending"]]
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+Completed 201 Created in 7ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2714)
+
+
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-25 11:08:09 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"6", "discription"=>"Cab to Client Site", "amount"=>500, "employee_id"=>"13", "expense"=>{"invoice_id"=>"6", "discription"=>"Cab to Client Site", "amount"=>500}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:5:in `create'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fa94da09030>, params: {"invoice_id"=>"6", "discription"=>"Cab to Client Site", "amount"=>500, "controller"=>"expenses", "action"=>"create", "employee_id"=>"13", "expense"=>{"invoice_id"=>"6", "discription"=>"Cab to Client Site", "amount"=>500}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mExpense Create (0.7ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "date", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "6"], ["date", nil], ["discription", "Cab to Client Site"], ["amount", 500.0], ["employee_id", 13], ["created_at", "2022-04-25 05:38:09.970978"], ["updated_at", "2022-04-25 05:38:09.970978"], ["status", "pending"]]
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+Completed 201 Created in 9ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 2727)
+
+
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-25 11:08:40 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"7", "discription"=>"Food is an expense", "amount"=>3000, "employee_id"=>"13", "expense"=>{"invoice_id"=>"7", "discription"=>"Food is an expense", "amount"=>3000}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:5:in `create'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fa94daa0d40>, params: {"invoice_id"=>"7", "discription"=>"Food is an expense", "amount"=>3000, "controller"=>"expenses", "action"=>"create", "employee_id"=>"13", "expense"=>{"invoice_id"=>"7", "discription"=>"Food is an expense", "amount"=>3000}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mExpense Create (0.6ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "date", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "7"], ["date", nil], ["discription", "Food is an expense"], ["amount", 3000.0], ["employee_id", 13], ["created_at", "2022-04-25 05:38:40.639912"], ["updated_at", "2022-04-25 05:38:40.639912"], ["status", "pending"]]
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 2727)
+
+
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:08:52 +0530
+  
+AbstractController::ActionNotFound (The action 'expense_report' could not be found for ExpensesController
+Did you mean?  expense_params):
+  
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:16:16 +0530
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+Completed 500 Internal Server Error in 2ms (Allocations: 500)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/expenses_controller.rb:44:in `expense_report'
+app/controllers/expenses_controller.rb:45:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:17:48 +0530
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/concerns/employee_module.rb:26:in `employee_expense_report'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.3ms | Allocations: 2723)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Employee without an ID):
+  
+app/controllers/concerns/employee_module.rb:26:in `employee_expense_report'
+app/controllers/expenses_controller.rb:45:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:21:21 +0530
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/concerns/employee_module.rb:26:in `employee_expense_report'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.5ms | Allocations: 2897)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Employee without an ID):
+  
+app/controllers/concerns/employee_module.rb:26:in `employee_expense_report'
+app/controllers/expenses_controller.rb:45:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:23:43 +0530
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/concerns/employee_module.rb:27:in `employee_expense_report'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.6ms | Allocations: 2905)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Employee without an ID):
+  
+app/controllers/concerns/employee_module.rb:27:in `employee_expense_report'
+app/controllers/expenses_controller.rb:46:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 11:25:39 +0530
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/concerns/employee_module.rb:27:in `employee_expense_report'
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/employee_module.rb:27:in `employee_expense_report'
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/controllers/concerns/employee_module.rb:29:in `employee_expense_report'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 12435)
+
+
+Started GET "/employee_details/13" for 127.0.0.1 at 2022-04-25 11:25:59 +0530
+Processing by AdminController#show as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/employee_module.rb:27:in `employee_expense_report'
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/controllers/concerns/employee_module.rb:29:in `employee_expense_report'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2003)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started POST "/comments" for 127.0.0.1 at 2022-04-25 11:29:42 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "reply_flag"=>false, "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "expense_id"=>5}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :reply_flag, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9496e3b70>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "reply_flag"=>false, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "expense_id"=>5}} }[0m
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+[31mUnpermitted parameters: :reply_flag, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9496e3b70>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "reply_flag"=>false, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "expense_id"=>5}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "title", "body", "expense_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2022-04-25 05:59:42.520929"], ["updated_at", "2022-04-25 05:59:42.520929"], ["title", "prakash.mamidi97@gmail.com"], ["body", "please upload the cab bills properly"], ["expense_id", 5]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+[31mUnpermitted parameters: :expense_id, :title, :body, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9496e3b70>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "reply_flag"=>false, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "expense_id"=>5}} }[0m
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:10:in `create'
+[31mUnpermitted parameters: :reply_flag, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9496e3b70>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "reply_flag"=>false, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please upload the cab bills properly", "expense_id"=>5}} }[0m
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the comment sent by admin is please upload the cab bills properly"}, :args=>[]}
+Completed 201 Created in 49ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 35195)
+
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb] Performing ActionMailer::MailDeliveryJob (Job ID: e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb) from Async(default) enqueued at 2022-04-25T05:59:42Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the comment sent by admin is please upload the cab bills properly"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb] ExpenseMailer#expense_report_mail: processed outbound mail in 1.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb] Delivered mail 626638ce8e7e3_14c1144d884854@CALTM00058.mail (10.2ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb] Date: Mon, 25 Apr 2022 11:29:42 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <626638ce8e7e3_14c1144d884854@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the comment sent by admin is please upload the cab bills properly
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb] Performed ActionMailer::MailDeliveryJob (Job ID: e4a8e4d9-dcdd-4daa-a4cd-7ddc97f9d9cb) from Async(default) in 15.48ms
+Started POST "/employees/13/expenses/validate" for 127.0.0.1 at 2022-04-25 11:29:54 +0530
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>13, "id"=>"13", "expense"=>{"employee_id"=>13}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:21:in `validate'
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/controllers/expenses_controller.rb:25:in `validate'
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:27:in `block in validate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: e0ef5439-0913-439b-ac14-dad61da70816) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:27:in `block in validate'
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 4d29e163-74f7-4484-a1c5-3edfc38724db) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "6"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:27:in `block in validate'
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 406caf37-603e-491b-ab5b-937c7028b13e) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."invoice_id" = ? ORDER BY "expenses"."id" ASC LIMIT ?[0m  [["invoice_id", "7"], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:27:in `block in validate'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:33:in `block in validate'
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:33:in `block in validate'
+  [1m[36mExpense Update (0.3ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-25 05:59:54.764003"], ["status", "rejected"], ["id", 8]]
+  ↳ app/controllers/expenses_controller.rb:33:in `block in validate'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:33:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 5f681e1a-91d7-49c6-9fb7-fa58524f4ff5) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 is got rejected"}, :args=>[]}
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 12856)
+
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e0ef5439-0913-439b-ac14-dad61da70816] Performing ActionMailer::MailDeliveryJob (Job ID: e0ef5439-0913-439b-ac14-dad61da70816) from Async(default) enqueued at 2022-04-25T05:59:54Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e0ef5439-0913-439b-ac14-dad61da70816] ExpenseMailer#expense_report_mail: processed outbound mail in 0.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e0ef5439-0913-439b-ac14-dad61da70816] Delivered mail 626638dabf43e_14c1144d88499d@CALTM00058.mail (3.4ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e0ef5439-0913-439b-ac14-dad61da70816] Date: Mon, 25 Apr 2022 11:29:54 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <626638dabf43e_14c1144d88499d@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 500.0 vs the approved expense amount is 500.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [e0ef5439-0913-439b-ac14-dad61da70816] Performed ActionMailer::MailDeliveryJob (Job ID: e0ef5439-0913-439b-ac14-dad61da70816) from Async(default) in 5.37ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4d29e163-74f7-4484-a1c5-3edfc38724db] Performing ActionMailer::MailDeliveryJob (Job ID: 4d29e163-74f7-4484-a1c5-3edfc38724db) from Async(default) enqueued at 2022-04-25T05:59:54Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4d29e163-74f7-4484-a1c5-3edfc38724db] ExpenseMailer#expense_report_mail: processed outbound mail in 0.4ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4d29e163-74f7-4484-a1c5-3edfc38724db] Delivered mail 626638dac1b26_14c114578850a9@CALTM00058.mail (2.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4d29e163-74f7-4484-a1c5-3edfc38724db] Date: Mon, 25 Apr 2022 11:29:54 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <626638dac1b26_14c114578850a9@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 5000.0 vs the approved expense amount is 5000.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4d29e163-74f7-4484-a1c5-3edfc38724db] Performed ActionMailer::MailDeliveryJob (Job ID: 4d29e163-74f7-4484-a1c5-3edfc38724db) from Async(default) in 4.47ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [406caf37-603e-491b-ab5b-937c7028b13e] Performing ActionMailer::MailDeliveryJob (Job ID: 406caf37-603e-491b-ab5b-937c7028b13e) from Async(default) enqueued at 2022-04-25T05:59:54Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [406caf37-603e-491b-ab5b-937c7028b13e] ExpenseMailer#expense_report_mail: processed outbound mail in 0.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [406caf37-603e-491b-ab5b-937c7028b13e] Delivered mail 626638dac3711_14c1145a0851aa@CALTM00058.mail (1.7ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [406caf37-603e-491b-ab5b-937c7028b13e] Date: Mon, 25 Apr 2022 11:29:54 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <626638dac3711_14c1145a0851aa@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 500.0 vs the approved expense amount is 500.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [406caf37-603e-491b-ab5b-937c7028b13e] Performed ActionMailer::MailDeliveryJob (Job ID: 406caf37-603e-491b-ab5b-937c7028b13e) from Async(default) in 3.16ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5f681e1a-91d7-49c6-9fb7-fa58524f4ff5] Performing ActionMailer::MailDeliveryJob (Job ID: 5f681e1a-91d7-49c6-9fb7-fa58524f4ff5) from Async(default) enqueued at 2022-04-25T05:59:54Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 is got rejected"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5f681e1a-91d7-49c6-9fb7-fa58524f4ff5] ExpenseMailer#expense_report_mail: processed outbound mail in 5.1ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5f681e1a-91d7-49c6-9fb7-fa58524f4ff5] Delivered mail 626638dac6185_14c114604852b0@CALTM00058.mail (2.1ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5f681e1a-91d7-49c6-9fb7-fa58524f4ff5] Date: Mon, 25 Apr 2022 11:29:54 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <626638dac6185_14c114604852b0@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 3000.0 is got rejected
+[ActiveJob] [ActionMailer::MailDeliveryJob] [5f681e1a-91d7-49c6-9fb7-fa58524f4ff5] Performed ActionMailer::MailDeliveryJob (Job ID: 5f681e1a-91d7-49c6-9fb7-fa58524f4ff5) from Async(default) in 7.99ms
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started POST "/employees/13/expenses/validate" for 127.0.0.1 at 2022-04-25 11:36:35 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>13, "id"=>"13", "expense"=>{"employee_id"=>13}}
+Can't verify CSRF token authenticity.
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:21:in `validate'
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/controllers/expenses_controller.rb:25:in `validate'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-25 06:06:35.573118"], ["status", "approved"], ["id", 5]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: f3f94d05-d871-4b32-88fc-02adcbc5ea36) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mExpense Update (0.3ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-25 06:06:35.580657"], ["status", "approved"], ["id", 6]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 4607cac6-0fe1-40cb-81e3-45c819498648) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-25 06:06:35.585245"], ["status", "approved"], ["id", 7]]
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:30:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 64f3d915-03d0-485e-9f4f-c6ac4f137163) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 57a7c0d8-afb9-4e71-a965-c63b50ce38bb) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 is got rejected"}, :args=>[]}
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 17406)
+
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f3f94d05-d871-4b32-88fc-02adcbc5ea36] Performing ActionMailer::MailDeliveryJob (Job ID: f3f94d05-d871-4b32-88fc-02adcbc5ea36) from Async(default) enqueued at 2022-04-25T06:06:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f3f94d05-d871-4b32-88fc-02adcbc5ea36] ExpenseMailer#expense_report_mail: processed outbound mail in 0.7ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f3f94d05-d871-4b32-88fc-02adcbc5ea36] Delivered mail 62663a6b94aa4_14c11460485381@CALTM00058.mail (6.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f3f94d05-d871-4b32-88fc-02adcbc5ea36] Date: Mon, 25 Apr 2022 11:36:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <62663a6b94aa4_14c11460485381@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 500.0 vs the approved expense amount is 500.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f3f94d05-d871-4b32-88fc-02adcbc5ea36] Performed ActionMailer::MailDeliveryJob (Job ID: f3f94d05-d871-4b32-88fc-02adcbc5ea36) from Async(default) in 9.74ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4607cac6-0fe1-40cb-81e3-45c819498648] Performing ActionMailer::MailDeliveryJob (Job ID: 4607cac6-0fe1-40cb-81e3-45c819498648) from Async(default) enqueued at 2022-04-25T06:06:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 5000.0 vs the approved expense amount is 5000.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4607cac6-0fe1-40cb-81e3-45c819498648] ExpenseMailer#expense_report_mail: processed outbound mail in 0.7ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4607cac6-0fe1-40cb-81e3-45c819498648] Delivered mail 62663a6b98ac5_14c1171ec854b3@CALTM00058.mail (6.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4607cac6-0fe1-40cb-81e3-45c819498648] Date: Mon, 25 Apr 2022 11:36:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <62663a6b98ac5_14c1171ec854b3@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 5000.0 vs the approved expense amount is 5000.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [4607cac6-0fe1-40cb-81e3-45c819498648] Performed ActionMailer::MailDeliveryJob (Job ID: 4607cac6-0fe1-40cb-81e3-45c819498648) from Async(default) in 9.05ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [64f3d915-03d0-485e-9f4f-c6ac4f137163] Performing ActionMailer::MailDeliveryJob (Job ID: 64f3d915-03d0-485e-9f4f-c6ac4f137163) from Async(default) enqueued at 2022-04-25T06:06:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 500.0 vs the approved expense amount is 500.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [57a7c0d8-afb9-4e71-a965-c63b50ce38bb] Performing ActionMailer::MailDeliveryJob (Job ID: 57a7c0d8-afb9-4e71-a965-c63b50ce38bb) from Async(default) enqueued at 2022-04-25T06:06:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 is got rejected"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [64f3d915-03d0-485e-9f4f-c6ac4f137163] ExpenseMailer#expense_report_mail: processed outbound mail in 1.1ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [57a7c0d8-afb9-4e71-a965-c63b50ce38bb] ExpenseMailer#expense_report_mail: processed outbound mail in 0.4ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [64f3d915-03d0-485e-9f4f-c6ac4f137163] Delivered mail 62663a6ba114d_14c11721485559@CALTM00058.mail (3.8ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [57a7c0d8-afb9-4e71-a965-c63b50ce38bb] Delivered mail 62663a6ba1813_14c11723c856b1@CALTM00058.mail (2.6ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [57a7c0d8-afb9-4e71-a965-c63b50ce38bb] Date: Mon, 25 Apr 2022 11:36:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <62663a6ba1813_14c11723c856b1@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 3000.0 is got rejected
+[ActiveJob] [ActionMailer::MailDeliveryJob] [64f3d915-03d0-485e-9f4f-c6ac4f137163] Date: Mon, 25 Apr 2022 11:36:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <62663a6ba114d_14c11721485559@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 500.0 vs the approved expense amount is 500.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [57a7c0d8-afb9-4e71-a965-c63b50ce38bb] Performed ActionMailer::MailDeliveryJob (Job ID: 57a7c0d8-afb9-4e71-a965-c63b50ce38bb) from Async(default) in 35.71ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [64f3d915-03d0-485e-9f4f-c6ac4f137163] Performed ActionMailer::MailDeliveryJob (Job ID: 64f3d915-03d0-485e-9f4f-c6ac4f137163) from Async(default) in 44.13ms
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started POST "/comments" for 127.0.0.1 at 2022-04-25 11:38:09 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "reply_flag"=>true, "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "expense_id"=>5}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameters: :reply_flag, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9529af238>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "reply_flag"=>true, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "expense_id"=>5}} }[0m
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+[31mUnpermitted parameters: :reply_flag, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9529af238>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "reply_flag"=>true, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "expense_id"=>5}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "title", "body", "expense_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2022-04-25 06:08:09.743646"], ["updated_at", "2022-04-25 06:08:09.743646"], ["title", "prakash.mamidi97@gmail.com"], ["body", "please check the updated cab bills provided below"], ["expense_id", 5]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+[31mUnpermitted parameters: :expense_id, :title, :body, :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007fa9529af238>, params: {"expense_id"=>5, "title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "reply_flag"=>true, "controller"=>"comments", "action"=>"create", "comment"=>{"title"=>"prakash.mamidi97@gmail.com", "body"=>"please check the updated cab bills provided below", "expense_id"=>5}} }[0m
+Completed 201 Created in 38ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 5440)
+
+
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:45:33 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExpensesController#expense_report as */*
+  Parameters: {"employee_id"=>"13"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2075)
+
+
+  
+ActionView::MissingTemplate (Missing template expenses/expense_report, application/expense_report with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/mamidi.prakash/Documents/GitHub/ExpenseTracker/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+
+Did you mean?  expense/expense_report
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/mailer):
+  
+app/controllers/expenses_controller.rb:47:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:48:20 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+Completed 500 Internal Server Error in 8ms (Allocations: 1814)
+
+
+  
+ActionView::MissingTemplate (Missing template expenses/expense_report, application/expense_report with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/mamidi.prakash/Documents/GitHub/ExpenseTracker/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+
+Did you mean?  expense/expense_report
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/mailer):
+  
+app/controllers/expenses_controller.rb:47:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:52:18 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+Completed 500 Internal Server Error in 8ms (Allocations: 1152)
+
+
+  
+ActionView::MissingTemplate (Missing template expenses/expense_report, application/expense_report with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/mamidi.prakash/Documents/GitHub/ExpenseTracker/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+):
+  
+app/controllers/expenses_controller.rb:47:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:53:41 +0530
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2917)
+
+
+  
+RuntimeError (unauthorized):
+  
+app/controllers/application_controller.rb:7:in `validate_api_key'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:54:01 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+  Rendering expenses/expense_report.json.jbuilder
+  Rendered expenses/expense_report.json.jbuilder (Duration: 2.4ms | Allocations: 1568)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2779)
+
+
+  
+ActionView::Template::Error (undefined method `expenses' for nil:NilClass):
+    1: json.employee_expense_report do
+    2:     json.array! @employee.expenses
+    3: end
+  
+app/views/expenses/expense_report.json.jbuilder:2
+app/views/expenses/expense_report.json.jbuilder:1
+app/controllers/expenses_controller.rb:47:in `expense_report'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:56:51 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/expenses_controller.rb:47:in `expense_report'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:47:in `expense_report'
+  Rendering expenses/expense_report.json.jbuilder
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/views/expenses/expense_report.json.jbuilder:2
+  Rendered expenses/expense_report.json.jbuilder (Duration: 35.4ms | Allocations: 15995)
+Completed 200 OK in 68ms (Views: 38.0ms | ActiveRecord: 2.1ms | Allocations: 29030)
+
+
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 17:58:18 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:47:in `expense_report'
+  Rendering expenses/expense_report.json.jbuilder
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/views/expenses/expense_report.json.jbuilder:2
+  Rendered expenses/expense_report.json.jbuilder (Duration: 3.8ms | Allocations: 1331)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.3ms | Allocations: 2921)
+
+
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToEmployees (20220425123349)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "employees" ADD "status" integer[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aemployees" ("id" integer NOT NULL PRIMARY KEY, "phone_no" varchar DEFAULT NULL, "employee_name" varchar DEFAULT NULL, "email_id" varchar DEFAULT NULL, "employee_department" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aemployees" ("id","phone_no","employee_name","email_id","employee_department","status","created_at","updated_at")
+                     SELECT "id","phone_no","employee_name","email_id","employee_department","status","created_at","updated_at" FROM "employees"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "employees"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer NOT NULL PRIMARY KEY, "phone_no" varchar DEFAULT NULL, "employee_name" varchar DEFAULT NULL, "email_id" varchar DEFAULT NULL, "employee_department" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "employees" ("id","phone_no","employee_name","email_id","employee_department","created_at","updated_at")
+                     SELECT "id","phone_no","employee_name","email_id","employee_department","created_at","updated_at" FROM "aemployees"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aemployees"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 18:10:46 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20220425123349_add_status_to_employees.rb
+
+
+):
+  
+activerecord (7.0.2.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.2.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.2.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activesupport (7.0.2.3) lib/active_support/file_update_checker.rb:93:in `execute_if_updated'
+activerecord (7.0.2.3) lib/active_record/migration.rb:599:in `block in call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.2.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToEmployees (20220425123349)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "employees" ADD "status" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425123349"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aexpenses" ("id" integer NOT NULL PRIMARY KEY, "invoice_id" varchar DEFAULT NULL, "date" date DEFAULT NULL, "discription" varchar DEFAULT NULL, "amount" float DEFAULT NULL, "employee_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "status" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aexpenses_on_employee_id" ON "aexpenses" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aexpenses" ("id","invoice_id","date","discription","amount","employee_id","created_at","updated_at","status")
+                     SELECT "id","invoice_id","date","discription","amount","employee_id","created_at","updated_at","status" FROM "expenses"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "expenses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" integer NOT NULL PRIMARY KEY, "invoice_id" varchar DEFAULT NULL, "date" date DEFAULT NULL, "discription" varchar DEFAULT NULL, "amount" float DEFAULT NULL, "employee_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0eedcf2cd3"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_expenses_on_employee_id" ON "expenses" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("id","invoice_id","date","discription","amount","employee_id","created_at","updated_at")
+                     SELECT "id","invoice_id","date","discription","amount","employee_id","created_at","updated_at" FROM "aexpenses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aexpenses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aexpenses" ("id" integer NOT NULL PRIMARY KEY, "invoice_id" varchar DEFAULT NULL, "date" date DEFAULT NULL, "discription" varchar DEFAULT NULL, "amount" float DEFAULT NULL, "employee_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aexpenses_on_employee_id" ON "aexpenses" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aexpenses" ("id","invoice_id","date","discription","amount","employee_id","created_at","updated_at")
+                     SELECT "id","invoice_id","date","discription","amount","employee_id","created_at","updated_at" FROM "expenses"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "expenses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" integer NOT NULL PRIMARY KEY, "invoice_id" varchar DEFAULT NULL, "discription" varchar DEFAULT NULL, "amount" float DEFAULT NULL, "employee_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0eedcf2cd3"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_expenses_on_employee_id" ON "expenses" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("id","invoice_id","discription","amount","employee_id","created_at","updated_at")
+                     SELECT "id","invoice_id","discription","amount","employee_id","created_at","updated_at" FROM "aexpenses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aexpenses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToExpenses (20220425124404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "expenses" ADD "status" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425124404"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 18:15:11 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#create as JSON
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.5ms | Allocations: 524)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 18:16:27 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EmployeesController#create as JSON
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.6ms | Allocations: 498)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 18:18:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#create as JSON
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms | Allocations: 427)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/employees/13/expense_report" for 127.0.0.1 at 2022-04-25 18:20:26 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"13"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/expenses_controller.rb:47:in `expense_report'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:47:in `expense_report'
+  Rendering expenses/expense_report.json.jbuilder
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 13]]
+  ↳ app/views/expenses/expense_report.json.jbuilder:2
+  Rendered expenses/expense_report.json.jbuilder (Duration: 15.2ms | Allocations: 8325)
+Completed 200 OK in 33ms (Views: 16.6ms | ActiveRecord: 2.0ms | Allocations: 15171)
+
+
+Started POST "/employees" for 127.0.0.1 at 2022-04-25 18:20:30 +0530
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms | Allocations: 525)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.7ms)[0m  [1m[32mINSERT INTO "employees" ("phone_no", "employee_name", "email_id", "employee_department", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["phone_no", "7076302294"], ["employee_name", "prakash"], ["email_id", "prakash.mamidi97@@gmail.com"], ["employee_department", "software"], ["created_at", "2022-04-26 05:24:45.618829"], ["updated_at", "2022-04-26 05:24:45.618829"], ["status", 0]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+Started POST "/employees" for 127.0.0.1 at 2022-04-26 10:56:27 +0530
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.3ms | Allocations: 612)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/employees" for 127.0.0.1 at 2022-04-26 11:02:31 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 498)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.2.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/employees" for 127.0.0.1 at 2022-04-26 11:04:49 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EmployeesController#create as */*
+  Parameters: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}}
+[31mUnpermitted parameter: :employee. Context: { controller: EmployeesController, action: create, request: #<ActionDispatch::Request:0x00007fc09f047ee8>, params: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "controller"=>"employees", "action"=>"create", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}} }[0m
+[31mUnpermitted parameter: :employee. Context: { controller: EmployeesController, action: create, request: #<ActionDispatch::Request:0x00007fc09f047ee8>, params: {"phone_no"=>"7076302294", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_name"=>"Prakash Mamidi", "employee_department"=>"software engineer", "controller"=>"employees", "action"=>"create", "employee"=>{"phone_no"=>"7076302294", "employee_name"=>"Prakash Mamidi", "email_id"=>"mamidi.Prakash@credavenue.com", "employee_department"=>"software engineer"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/employees_controller.rb:9:in `create'
+  [1m[36mEmployee Create (0.7ms)[0m  [1m[32mINSERT INTO "employees" ("phone_no", "employee_name", "email_id", "employee_department", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["phone_no", "7076302294"], ["employee_name", "Prakash Mamidi"], ["email_id", "mamidi.Prakash@credavenue.com"], ["employee_department", "software engineer"], ["created_at", "2022-04-26 05:34:49.518244"], ["updated_at", "2022-04-26 05:34:49.518244"], ["status", 0]]
+  ↳ app/controllers/employees_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/employees_controller.rb:9:in `create'
+Completed 201 Created in 20ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 11238)
+
+
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+Started GET "/employees/15" for 127.0.0.1 at 2022-04-26 11:06:31 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for EmployeesController):
+  
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-26 11:07:18 +0530
+  
+NoMethodError (undefined method `before_action' for EmployeeModule:Module):
+  
+app/controllers/concerns/employee_module.rb:3:in `<module:EmployeeModule>'
+app/controllers/concerns/employee_module.rb:1:in `<main>'
+app/controllers/expenses_controller.rb:3:in `<class:ExpensesController>'
+app/controllers/expenses_controller.rb:1:in `<main>'
+Started POST "/employees/13/expenses" for 127.0.0.1 at 2022-04-26 11:07:35 +0530
+  
+NoMethodError (undefined method `before_action' for EmployeeModule:Module):
+  
+app/controllers/concerns/employee_module.rb:3:in `<module:EmployeeModule>'
+app/controllers/concerns/employee_module.rb:1:in `<main>'
+app/controllers/expenses_controller.rb:3:in `<class:ExpensesController>'
+app/controllers/expenses_controller.rb:1:in `<main>'
+Started POST "/employees/15/expenses" for 127.0.0.1 at 2022-04-26 11:07:47 +0530
+  
+NoMethodError (undefined method `before_action' for EmployeeModule:Module):
+  
+app/controllers/concerns/employee_module.rb:3:in `<module:EmployeeModule>'
+app/controllers/concerns/employee_module.rb:1:in `<main>'
+app/controllers/expenses_controller.rb:3:in `<class:ExpensesController>'
+app/controllers/expenses_controller.rb:1:in `<main>'
+Started POST "/employees/15/expenses" for 127.0.0.1 at 2022-04-26 11:09:20 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"10", "discription"=>"Food is an expense", "amount"=>3000, "employee_id"=>"15", "expense"=>{"invoice_id"=>"10", "discription"=>"Food is an expense", "amount"=>3000}}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:63:in `set_employee'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fc0943ad0e8>, params: {"invoice_id"=>"10", "discription"=>"Food is an expense", "amount"=>3000, "controller"=>"expenses", "action"=>"create", "employee_id"=>"15", "expense"=>{"invoice_id"=>"10", "discription"=>"Food is an expense", "amount"=>3000}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mExpense Create (0.5ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "10"], ["discription", "Food is an expense"], ["amount", 3000.0], ["employee_id", 15], ["created_at", "2022-04-26 05:39:21.115690"], ["updated_at", "2022-04-26 05:39:21.115690"], ["status", 0]]
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:9:in `create'
+Completed 201 Created in 37ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 17692)
+
+
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+Started PATCH "/employees/15" for 127.0.0.1 at 2022-04-26 11:11:41 +0530
+Processing by EmployeesController#update as */*
+  Parameters: {"status"=>"onboarded", "id"=>"15", "employee"=>{"status"=>"onboarded"}}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:33:in `set_employee'
+[31mUnpermitted parameters: :status, :id, :employee. Context: { controller: EmployeesController, action: update, request: #<ActionDispatch::Request:0x00007fc097623108>, params: {"status"=>"onboarded", "controller"=>"employees", "action"=>"update", "id"=>"15", "employee"=>{"status"=>"onboarded"}} }[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 814)
+
+
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+Started POST "/employees/15/expenses" for 127.0.0.1 at 2022-04-26 11:15:09 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"12", "discription"=>"Cab to airport is an expense", "amount"=>700, "employee_id"=>"15", "expense"=>{"invoice_id"=>"12", "discription"=>"Cab to airport is an expense", "amount"=>700}}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:61:in `set_employee'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fc099246998>, params: {"invoice_id"=>"12", "discription"=>"Cab to airport is an expense", "amount"=>700, "controller"=>"expenses", "action"=>"create", "employee_id"=>"15", "expense"=>{"invoice_id"=>"12", "discription"=>"Cab to airport is an expense", "amount"=>700}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mExpense Create (0.6ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "12"], ["discription", "Cab to airport is an expense"], ["amount", 700.0], ["employee_id", 15], ["created_at", "2022-04-26 05:45:10.103070"], ["updated_at", "2022-04-26 05:45:10.103070"], ["status", 0]]
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+Completed 201 Created in 19ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 10004)
+
+
+Started POST "/employees/15/expenses" for 127.0.0.1 at 2022-04-26 11:15:23 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"14", "discription"=>"Hotel accommodation is an expense", "amount"=>7000, "employee_id"=>"15", "expense"=>{"invoice_id"=>"14", "discription"=>"Hotel accommodation is an expense", "amount"=>7000}}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:61:in `set_employee'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fc09f15f448>, params: {"invoice_id"=>"14", "discription"=>"Hotel accommodation is an expense", "amount"=>7000, "controller"=>"expenses", "action"=>"create", "employee_id"=>"15", "expense"=>{"invoice_id"=>"14", "discription"=>"Hotel accommodation is an expense", "amount"=>7000}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mExpense Create (0.6ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "14"], ["discription", "Hotel accommodation is an expense"], ["amount", 7000.0], ["employee_id", 15], ["created_at", "2022-04-26 05:45:23.449862"], ["updated_at", "2022-04-26 05:45:23.449862"], ["status", 0]]
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+Completed 201 Created in 10ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 2668)
+
+
+Started POST "/employees/15/expenses" for 127.0.0.1 at 2022-04-26 11:15:48 +0530
+Processing by ExpensesController#create as */*
+  Parameters: {"invoice_id"=>"16", "discription"=>"Cab to Client Site is an expense", "amount"=>700, "employee_id"=>"15", "expense"=>{"invoice_id"=>"16", "discription"=>"Cab to Client Site is an expense", "amount"=>700}}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:61:in `set_employee'
+[31mUnpermitted parameters: :employee_id, :expense. Context: { controller: ExpensesController, action: create, request: #<ActionDispatch::Request:0x00007fc098bcd058>, params: {"invoice_id"=>"16", "discription"=>"Cab to Client Site is an expense", "amount"=>700, "controller"=>"expenses", "action"=>"create", "employee_id"=>"15", "expense"=>{"invoice_id"=>"16", "discription"=>"Cab to Client Site is an expense", "amount"=>700}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mExpense Create (0.5ms)[0m  [1m[32mINSERT INTO "expenses" ("invoice_id", "discription", "amount", "employee_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["invoice_id", "16"], ["discription", "Cab to Client Site is an expense"], ["amount", 700.0], ["employee_id", 15], ["created_at", "2022-04-26 05:45:48.114598"], ["updated_at", "2022-04-26 05:45:48.114598"], ["status", 0]]
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:8:in `create'
+Completed 201 Created in 8ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 2669)
+
+
+Started GET "/employees/15/expense_report" for 127.0.0.1 at 2022-04-26 11:16:10 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"15"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:61:in `set_employee'
+  Rendering expenses/expense_report.json.jbuilder
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 15]]
+  ↳ app/views/expenses/expense_report.json.jbuilder:2
+  Rendered expenses/expense_report.json.jbuilder (Duration: 3.1ms | Allocations: 2300)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.4ms | Allocations: 3926)
+
+
+Started POST "/employees/15/expenses/validate" for 127.0.0.1 at 2022-04-26 11:16:34 +0530
+Processing by ExpensesController#validate as */*
+  Parameters: {"employee_id"=>13, "id"=>"15", "expense"=>{"employee_id"=>13}}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `validate'
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 15]]
+  ↳ app/controllers/expenses_controller.rb:19:in `validate'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-26 05:46:34.935384"], ["status", 1], ["id", 9]]
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 369b1daa-e192-4cbc-a79a-9ad320783982) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 vs the approved expense amount is 3000.0"}, :args=>[]}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-26 05:46:34.993476"], ["status", 1], ["id", 10]]
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 179b6860-1571-4818-9fcb-30a35bcd682f) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 700.0 vs the approved expense amount is 700.0"}, :args=>[]}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mExpense Update (0.5ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-26 05:46:34.998391"], ["status", 1], ["id", 11]]
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: bef56a30-d715-4fdd-bf8d-085ee3989fdc) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 7000.0 vs the approved expense amount is 7000.0"}, :args=>[]}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mExpense Update (0.3ms)[0m  [1m[33mUPDATE "expenses" SET "updated_at" = ?, "status" = ? WHERE "expenses"."id" = ?[0m  [["updated_at", "2022-04-26 05:46:35.003028"], ["status", 1], ["id", 12]]
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:24:in `block in validate'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 958557de-4568-4304-9d7e-209c28428af4) to Async(default) with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 700.0 vs the approved expense amount is 700.0"}, :args=>[]}
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 39691)
+
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [369b1daa-e192-4cbc-a79a-9ad320783982] Performing ActionMailer::MailDeliveryJob (Job ID: 369b1daa-e192-4cbc-a79a-9ad320783982) from Async(default) enqueued at 2022-04-26T05:46:34Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 3000.0 vs the approved expense amount is 3000.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [369b1daa-e192-4cbc-a79a-9ad320783982] ExpenseMailer#expense_report_mail: processed outbound mail in 2.3ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [369b1daa-e192-4cbc-a79a-9ad320783982] Delivered mail 6267873b850b_110011bd4-4f1@CALTM00058.mail (10.6ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [369b1daa-e192-4cbc-a79a-9ad320783982] Date: Tue, 26 Apr 2022 11:16:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <6267873b850b_110011bd4-4f1@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 3000.0 vs the approved expense amount is 3000.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [369b1daa-e192-4cbc-a79a-9ad320783982] Performed ActionMailer::MailDeliveryJob (Job ID: 369b1daa-e192-4cbc-a79a-9ad320783982) from Async(default) in 18.4ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [179b6860-1571-4818-9fcb-30a35bcd682f] Performing ActionMailer::MailDeliveryJob (Job ID: 179b6860-1571-4818-9fcb-30a35bcd682f) from Async(default) enqueued at 2022-04-26T05:46:34Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 700.0 vs the approved expense amount is 700.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [179b6860-1571-4818-9fcb-30a35bcd682f] ExpenseMailer#expense_report_mail: processed outbound mail in 0.4ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [179b6860-1571-4818-9fcb-30a35bcd682f] Delivered mail 6267873ba908_110011c10-3da@CALTM00058.mail (2.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [179b6860-1571-4818-9fcb-30a35bcd682f] Date: Tue, 26 Apr 2022 11:16:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <6267873ba908_110011c10-3da@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 700.0 vs the approved expense amount is 700.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [179b6860-1571-4818-9fcb-30a35bcd682f] Performed ActionMailer::MailDeliveryJob (Job ID: 179b6860-1571-4818-9fcb-30a35bcd682f) from Async(default) in 3.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [bef56a30-d715-4fdd-bf8d-085ee3989fdc] Performing ActionMailer::MailDeliveryJob (Job ID: bef56a30-d715-4fdd-bf8d-085ee3989fdc) from Async(default) enqueued at 2022-04-26T05:46:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 7000.0 vs the approved expense amount is 7000.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [bef56a30-d715-4fdd-bf8d-085ee3989fdc] ExpenseMailer#expense_report_mail: processed outbound mail in 0.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [bef56a30-d715-4fdd-bf8d-085ee3989fdc] Delivered mail 6267873bbd8d_110011c38-2d8@CALTM00058.mail (1.6ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [bef56a30-d715-4fdd-bf8d-085ee3989fdc] Date: Tue, 26 Apr 2022 11:16:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <6267873bbd8d_110011c38-2d8@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 7000.0 vs the approved expense amount is 7000.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [bef56a30-d715-4fdd-bf8d-085ee3989fdc] Performed ActionMailer::MailDeliveryJob (Job ID: bef56a30-d715-4fdd-bf8d-085ee3989fdc) from Async(default) in 2.98ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [958557de-4568-4304-9d7e-209c28428af4] Performing ActionMailer::MailDeliveryJob (Job ID: 958557de-4568-4304-9d7e-209c28428af4) from Async(default) enqueued at 2022-04-26T05:46:35Z with arguments: "ExpenseMailer", "expense_report_mail", "deliver_now", {:params=>{:user=>"mamidi.Prakash@credavenue.com", :email_body=>"the applied expense amount is 700.0 vs the approved expense amount is 700.0"}, :args=>[]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [958557de-4568-4304-9d7e-209c28428af4] ExpenseMailer#expense_report_mail: processed outbound mail in 0.4ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [958557de-4568-4304-9d7e-209c28428af4] Delivered mail 6267873bd3c0_110011c60-1c3@CALTM00058.mail (1.5ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [958557de-4568-4304-9d7e-209c28428af4] Date: Tue, 26 Apr 2022 11:16:35 +0530
+From: prakash.mamidi97@gmail.com
+To: mamidi.Prakash@credavenue.com
+Message-ID: <6267873bd3c0_110011c60-1c3@CALTM00058.mail>
+Subject: expense reimburshed
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+the applied expense amount is 700.0 vs the approved expense amount is 700.0
+[ActiveJob] [ActionMailer::MailDeliveryJob] [958557de-4568-4304-9d7e-209c28428af4] Performed ActionMailer::MailDeliveryJob (Job ID: 958557de-4568-4304-9d7e-209c28428af4) from Async(default) in 2.46ms
+Started GET "/employees/15/expense_report" for 127.0.0.1 at 2022-04-26 11:16:43 +0530
+Processing by ExpensesController#expense_report as JSON
+  Parameters: {"employee_id"=>"15"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:61:in `set_employee'
+  Rendering expenses/expense_report.json.jbuilder
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."employee_id" = ?[0m  [["employee_id", 15]]
+  ↳ app/views/expenses/expense_report.json.jbuilder:2
+  Rendered expenses/expense_report.json.jbuilder (Duration: 2.0ms | Allocations: 1217)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 2002)
+
+
+Started GET "/employee_details/15" for 127.0.0.1 at 2022-04-26 11:17:18 +0530
+Processing by AdminController#show as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/employee_module.rb:20:in `employee_expense_report'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 679)
+
+
+Started GET "/employee_details/15" for 127.0.0.1 at 2022-04-26 11:19:01 +0530
+Processing by AdminController#show as */*
+  Parameters: {"id"=>"15"}
+Completed 500 Internal Server Error in 10ms (Allocations: 1927)
+
+
+  
+ActionView::MissingTemplate (Missing template admin/expense_report, application/expense_report with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/mamidi.prakash/Documents/GitHub/ExpenseTracker/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+
+Did you mean?  expenses/expense_report
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/mailer):
+  
+app/controllers/admin_controller.rb:7:in `show'
+Started GET "/employee_details/15" for 127.0.0.1 at 2022-04-26 11:47:29 +0530
+Processing by AdminController#show as */*
+  Parameters: {"id"=>"15"}
+Completed 500 Internal Server Error in 7ms (Allocations: 1325)
+
+
+  
+ActionView::MissingTemplate (Missing template admin/expense_report, application/expense_report with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/mamidi.prakash/Documents/GitHub/ExpenseTracker/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/mamidi.prakash/.rvm/gems/ruby-3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+
+Did you mean?  expenses/expense_report
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/show
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/mailer):
+  
+app/controllers/admin_controller.rb:7:in `show'
