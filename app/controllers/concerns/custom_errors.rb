@@ -16,10 +16,4 @@ module CustomErrors
   PLATFORM_SERVICE_UNAVAILABLE = 503
   SERVICE_UNAVAILABLE          = 503
 
-  class ResponseError < StandardError
-    def initialize(message = nil)
-      message.is_a?(Array) ? super(message.first) : super(message)
-    end
-  end
-
 end
